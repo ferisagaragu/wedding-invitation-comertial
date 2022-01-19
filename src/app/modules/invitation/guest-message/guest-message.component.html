@@ -1,0 +1,43 @@
+<!--autoplay-->
+<audio #audioPlayer controls>
+  <source
+    [src]="musicUrl"
+    type="audio/mp3">
+  audio
+</audio>
+
+<div class="guest-message-container wow animate__animated animate__slow animate__backInUp">
+  <div class="primary-decorator"></div>
+
+  <div>
+    <h3 class="p-4">
+      {{ getGuestMessage(familyName) }}
+      <br>
+
+      <strong class="accent-text">
+        {{
+          familyName
+            .replace('*', '')
+            .replace('_f', '')
+            .replace('_m', '')
+        }}
+      </strong> <br>
+      a compartir la magia de nuestro amor
+    </h3>
+  </div>
+
+  <button
+    mat-stroked-button
+    class="pulse"
+    color="accent"
+    (click)="play()"
+  >
+    <mat-icon>
+      favorite
+    </mat-icon>
+
+    Siente nuestro amor
+  </button>
+
+  <div class="primary-decorator mt-4"></div>
+</div>
