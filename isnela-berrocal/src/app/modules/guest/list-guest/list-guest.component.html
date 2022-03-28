@@ -1,0 +1,89 @@
+<div class="container mt-5">
+  <mat-form-field appearance="fill">
+    <mat-label>Busca una invitación</mat-label>
+
+    <input
+      #searchInput
+      matInput
+      placeholder="Buscar..."
+      (keyup)="search(searchInput)"
+    >
+  </mat-form-field>
+
+  <div class="row">
+    <div class="col-md-3">
+      <strong>
+        Boletos de adulto:
+      </strong>
+
+      {{ adults }}
+    </div>
+
+    <div class="col-md-3">
+      <strong>
+        Boletos de niño:
+      </strong>
+
+      {{ children }}
+    </div>
+
+    <div class="col-md-12">
+      <strong>
+        Boletos aceptados ✅:
+      </strong>
+
+      {{ accept }}
+    </div>
+
+    <div class="col-md-12">
+      <strong>
+        Boletos no aceptados ⭕:
+      </strong>
+
+      {{ notAccept }}
+    </div>
+
+    <div class="col-md-12">
+      <strong>
+        Número de invitados:
+      </strong>
+
+      {{ accept + notAccept }}
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+  <div *ngFor="let invitation of invitations">
+    <div>
+      <h3>
+        <strong>
+          {{ invitation.familyName }}
+        </strong>
+      </h3>
+    </div>
+
+    <div
+      *ngFor="let guest of invitation.guests"
+      class="row"
+    >
+      <div class="col-md-3">
+        {{ guest.name }}
+      </div>
+
+      <div class="col-md-6">
+        {{ guest.status === 2 ? '✅' : '⭕' }}
+      </div>
+    </div>
+
+    <br>
+
+    <a
+      target="_blank"
+      [href]="'https://isnela-and-fredy.web.app/#/invitation/' + invitation.uuid"
+    >
+      Ir a la invitación
+    </a>
+    <hr>
+  </div>
+</div>
