@@ -2,7 +2,7 @@
 @include mat-core();
 
 $primary-color: (
-  500: #6D2741,
+  500: #253884,
   contrast: (
     500: white
   )
@@ -27,7 +27,7 @@ body { margin: 0; background: rgba(213, 181, 156, 0.11) !important; }
 
 .primary-color {
   color: white !important;
-  background: #6D2741 !important;
+  background: #253884 !important;
 }
 
 .primary-color>.mat-icon {
@@ -44,7 +44,7 @@ body { margin: 0; background: rgba(213, 181, 156, 0.11) !important; }
 }
 
 .primary-text {
-  color: #6D2741 !important;
+  color: #253884 !important;
 }
 
 .accent-text {

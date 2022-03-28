@@ -16,7 +16,7 @@ export const generateGuestListFunction = (guests: Array<GuestModel>): string => 
               ${
                 guests
                   .filter(guest => guest.status === 2)
-                  .map(guest => `<li>${guest.name} ${guest.surname} ${guest.motherSurname}</li>`)
+                  .map(guest => `<li>${guest.name} ${guest.surname ? guest.surname : ''} ${guest.motherSurname ? guest.motherSurname : ''}</li>`)
                   .join('')
               }
             </ul>
@@ -38,7 +38,7 @@ export const generateGuestListFunction = (guests: Array<GuestModel>): string => 
               ${
                 guests
                   .filter(guest => guest.status === 1)
-                  .map(guest => `<li>${guest.name} ${guest.surname} ${guest.motherSurname}</li>`)
+                  .map(guest => `<li>${guest.name} ${guest.surname ? guest.surname : ''} ${guest.motherSurname ? guest.motherSurname : ''}</li>`)
                   .join('')
               }
             </ul>
@@ -71,6 +71,5 @@ const containsDeny = (guests: Array<GuestModel>): boolean => {
     }
   });
 
-  console.log(out)
   return out;
 }

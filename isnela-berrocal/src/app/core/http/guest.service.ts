@@ -24,8 +24,8 @@ export class GuestService {
   }
 
   changeStatus(invitation: InvitationModel) {
-    return this.http.patch(
-      `${environment.baseUrl}/public/guests/change-status`,
+    return this.http.put(
+      `${environment.baseUrl}/${invitation.uuid}.json`,
       invitation
     );
   }

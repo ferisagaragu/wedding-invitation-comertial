@@ -1,0 +1,21 @@
+<div class="root-container">
+  <div class="title-cursive pt-4 pb-4">
+    Escanea al invitado
+  </div>
+
+  <div class="qr-container">
+    <div class="qr-scanner">
+      <qr-scanner
+        #qrScannerComponent
+        [debug]="false"
+        [canvasWidth]="250"
+        [canvasHeight]="250"
+        [stopAfterScan]="false"
+        [updateTime]="200"
+      >
+      </qr-scanner>
+    </div>
+  </div>
+</div>
+
+<app-view-ticket-status [code]="code"></app-view-ticket-status>

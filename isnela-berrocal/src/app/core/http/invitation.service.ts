@@ -12,20 +12,32 @@ export class InvitationService {
 
   constructor(private http: HttpClient) { }
 
-  findAllInvitation(query?: string): Observable<Array<InvitationModel> | InvitationModel> {
-    return this.http.get(`${environment.baseUrl}/public/invitations/${query ? query : ''}`)
-      .pipe(map(
-        (resp: any) => resp.cont ?
-          resp.data.map(data => new InvitationModel(data)) :
-          new InvitationModel(resp.data)
-      ));
+  findAllInvitation(query?: string): Observable<InvitationModel> {
+    return this.http.get(`${environment.baseUrl}/${query}.json`)
+      .pipe(map(resp => new InvitationModel(resp)));
   }
 
-  generateTickets(invitationUuid: string): Observable<string> {
-    return this.http.get(
-      `${environment.baseUrl}/public/invitations/ticket/${invitationUuid}`,
+  findAllInvitations(): Observable<Array<InvitationModel>> {
+    return this.http.get(`${environment.baseUrl}/.json`)
+      .pipe(map((resp: any) => {
+        const out = [];
+
+        for (let key in resp) {
+          if (resp.hasOwnProperty(key)) {
+            out.push(new InvitationModel(resp[key]));
+          }
+        }
+
+        return out;
+      }));
+  }
+
+  generateTickets(guests: Array<string>): Observable<string> {
+    return this.http.post(
+      `${environment.baseTicketUrl}/public/invitations`,
+      guests,
       { responseType: 'blob' }
-    ).pipe(map(resp => window.URL.createObjectURL(resp)));
+    ).pipe(map(resp => URL.createObjectURL(resp)));
   }
 
 }

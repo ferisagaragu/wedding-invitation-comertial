@@ -57,7 +57,9 @@ export class FormGuestComponent implements OnInit {
   generateTicket(): void {
     this.load = true;
 
-    this.invitationService.generateTickets(this.invitation.uuid).subscribe(resp => {
+    this.invitationService.generateTickets(
+      this.guests.map(guest => guest.name)
+    ).subscribe(resp => {
       const link = document.createElement('a');
       link.href = resp;
       link.click();
