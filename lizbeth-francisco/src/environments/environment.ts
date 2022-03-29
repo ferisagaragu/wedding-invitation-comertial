@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: "http://10.244.58.54:5000/rest"
+  baseUrl: "https://lizbeth-and-francisco-default-rtdb.firebaseio.com/"
 };
 
 /*

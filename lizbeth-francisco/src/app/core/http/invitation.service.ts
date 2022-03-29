@@ -13,12 +13,8 @@ export class InvitationService {
   constructor(private http: HttpClient) { }
 
   findAllInvitation(query?: string): Observable<Array<InvitationModel> | InvitationModel> {
-    return this.http.get(`${environment.baseUrl}/public/invitations/${query ? query : ''}`)
-      .pipe(map(
-        (resp: any) => resp.cont ?
-          resp.data.map(data => new InvitationModel(data)) :
-          new InvitationModel(resp.data)
-      ));
+    return this.http.get(`${environment.baseUrl}${query ? query : ''}.json`)
+      .pipe(map((resp: any) => new InvitationModel(resp)));
   }
 
   generateTickets(invitationUuid: string): Observable<string> {

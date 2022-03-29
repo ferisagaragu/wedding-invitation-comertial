@@ -40,8 +40,23 @@
   }
 }
 
+@media (min-width: 928px) {
+  .image-container {
+    height: 928px !important;
+    background-image: url(~src/assets/img/main-big.jpg) !important;
+  }
+
+  .shadow-container {
+    height: 928px !important;
+  }
+
+  .text-container {
+    transform: translateY(-580px) !important;
+  }
+}
+
 .image-container {
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/wedding-invitation-8ad35.appspot.com/o/assets%2Fimg%2Fcarousel%2FA514579.jpg?alt=media&token=99beb1b3-27a7-46dc-a970-39c96623ebe2);
+  background-image: url(~src/assets/img/main.png);
   background-color: #cccccc;
   background-position: center;
   background-repeat: no-repeat;

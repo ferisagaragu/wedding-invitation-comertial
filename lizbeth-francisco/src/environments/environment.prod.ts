@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseUrl: "https://wedding-invitation-rest.herokuapp.com/rest"
+  baseUrl: "https://lizbeth-and-francisco-default-rtdb.firebaseio.com/"
 };

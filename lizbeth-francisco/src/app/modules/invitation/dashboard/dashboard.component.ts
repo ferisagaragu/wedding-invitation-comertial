@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
 
     this.activatedRoute.params.subscribe(params => {
       this.invitationService.findAllInvitation(params.guestUuid).subscribe(resp => {
+        console.log(resp);
         if (resp instanceof InvitationModel) {
           this.invitation = resp;
         }
