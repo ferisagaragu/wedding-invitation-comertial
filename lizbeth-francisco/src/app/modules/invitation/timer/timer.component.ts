@@ -20,9 +20,9 @@ export class TimerComponent implements OnInit {
 
   ngOnInit(): void {
     setInterval(() => {
-      this.month = moment('2021-11-05').diff(new Date(), 'months');
-      this.week = moment('2021-11-05').diff(new Date(), 'weeks');
-      this.days = moment('2021-11-05').diff(new Date(), 'days');
+      this.month = moment('2022-05-07').diff(new Date(), 'months');
+      this.week = moment('2022-05-07').diff(new Date(), 'weeks');
+      this.days = moment('2022-05-07').diff(new Date(), 'days');
     }, 1000);
   }
 

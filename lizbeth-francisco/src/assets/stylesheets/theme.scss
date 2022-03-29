@@ -2,9 +2,9 @@
 @include mat-core();
 
 $primary-color: (
-  500: #6D2741,
+  500: #D0B072,
   contrast: (
-    500: white
+    500: black
   )
 );
 
@@ -26,8 +26,8 @@ body { margin: 0; background: rgba(213, 181, 156, 0.11) !important; }
 *{ font-family: JosefinSans-Regular; }
 
 .primary-color {
-  color: white !important;
-  background: #6D2741 !important;
+  color: black !important;
+  background: #D0B072 !important;
 }
 
 .primary-color>.mat-icon {
@@ -44,7 +44,7 @@ body { margin: 0; background: rgba(213, 181, 156, 0.11) !important; }
 }
 
 .primary-text {
-  color: #6D2741 !important;
+  color: #D0B072 !important;
 }
 
 .accent-text {

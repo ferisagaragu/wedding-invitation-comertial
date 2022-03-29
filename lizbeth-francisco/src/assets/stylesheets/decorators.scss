@@ -1,7 +1,15 @@
 .primary-decorator {
   width: 100%;
-  height: 80px;
-  background-image: url(https://firebasestorage.googleapis.com/v0/b/wedding-invitation-8ad35.appspot.com/o/assets%2Fimg%2Fprincipal-decorator.png?alt=media&token=4459815e-d2ad-42bd-9ef4-76f9127ee27a);
+  height: 100px;
+  background-image: url(~src/assets/img/separator.png);
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.primary-decorator-invert {
+  width: 100%;
+  height: 100px;
+  background-image: url(~src/assets/img/separator-invert.png);
   background-repeat: no-repeat;
   background-position: center;
 }
