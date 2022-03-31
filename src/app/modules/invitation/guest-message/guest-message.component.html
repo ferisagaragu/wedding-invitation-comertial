@@ -12,16 +12,16 @@
   <div>
     <h3 class="p-4">
       {{ getGuestMessage(familyName) }}
-      <br>
+      <br *ngIf="familyName !== '???'">
 
-      <strong class="accent-text">
+      <strong *ngIf="familyName !== '???'" class="accent-text">
         {{
           familyName
             .replace('*', '')
             .replace('_f', '')
             .replace('_m', '')
         }}
-      </strong> <br>
+      </strong> <br *ngIf="familyName !== '???'">
       a compartir la magia de nuestro amor
     </h3>
   </div>

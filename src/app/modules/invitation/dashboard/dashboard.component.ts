@@ -25,14 +25,22 @@ export class DashboardComponent implements OnInit {
     this.load = true;
 
     this.activatedRoute.params.subscribe(params => {
-      this.invitationService.findAllInvitation(params.guestUuid).subscribe(resp => {
-        console.log(resp);
-        if (resp instanceof InvitationModel) {
-          this.invitation = resp;
-        }
+      if (params.guestUuid === 'void') {
+        this.invitation = new InvitationModel({
+          familyName: '???',
+          guests: []
+        });
 
         this.load = false;
-      });
+      } else {
+        this.invitationService.findAllInvitation(params.guestUuid).subscribe(resp => {
+          if (resp instanceof InvitationModel) {
+            this.invitation = resp;
+          }
+
+          this.load = false;
+        });
+      }
     });
   }
 
