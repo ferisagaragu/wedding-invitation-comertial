@@ -5,11 +5,13 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { ScannerTicketComponent } from './scanner-ticket/scanner-ticket.component';
 import { SharedModule } from '../../shared/shared.module';
 import { ViewTicketStatusComponent } from './view-ticket-status/view-ticket-status.component';
+import { ListGuestComponent } from './list-guest/list-guest.component';
 
 @NgModule({
   declarations: [
     ScannerTicketComponent,
-    ViewTicketStatusComponent
+    ViewTicketStatusComponent,
+    ListGuestComponent
   ],
 	imports: [
 		CommonModule,

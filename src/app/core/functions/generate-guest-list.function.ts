@@ -4,48 +4,40 @@ export const generateGuestListFunction = (guests: Array<GuestModel>): string => 
   return `
     <div>
       ${
-        containsAccept(guests) ?
-          `
+    containsAccept(guests) ?
+      `
             <br>
-
             <em>Invitado(s) confirmado(s):</em>
-
             <br><br>
-
             <ul>
               ${
-                guests
-                  .filter(guest => guest.status === 2)
-                  .map(guest => `<li>${guest.name} ${guest.surname} ${guest.motherSurname}</li>`)
-                  .join('')
-              }
+        guests
+          .filter(guest => guest.status === 2)
+          .map(guest => `<li>${guest.name} ${guest.surname ? guest.surname : ''} ${guest.motherSurname ? guest.motherSurname : ''}</li>`)
+          .join('')
+      }
             </ul>
           `
-        :
-          ''
-      }
-
-      ${
-        containsDeny(guests) ?
-          `
+      :
+      ''
+  }
+      ${containsDeny(guests) ?
+      `
             <br>
-
             <em>Invitado(s) que no asistirán:</em>
-
             <br><br>
-
             <ul>
               ${
-                guests
-                  .filter(guest => guest.status === 1)
-                  .map(guest => `<li>${guest.name} ${guest.surname} ${guest.motherSurname}</li>`)
-                  .join('')
-              }
+        guests
+          .filter(guest => guest.status === 1)
+          .map(guest => `<li>${guest.name} ${guest.surname ? guest.surname : ''} ${guest.motherSurname ? guest.motherSurname : ''}</li>`)
+          .join('')
+      }
             </ul>
           `
-        :
-          ''
-      }
+      :
+      ''
+  }
     </span>
   `;
 }
@@ -71,6 +63,5 @@ const containsDeny = (guests: Array<GuestModel>): boolean => {
     }
   });
 
-  console.log(out)
   return out;
 }

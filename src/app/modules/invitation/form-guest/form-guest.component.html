@@ -55,7 +55,7 @@
     </div>
 
     <button
-      *ngIf="invitation.send && !load"
+      *ngIf="invitation.send && !load && getAllResponse()"
       mat-stroked-button
       color="primary"
       (click)="generateTicket()"

@@ -69,7 +69,11 @@ export class GuestMessageComponent {
       return 'Te queremos invitar ';
     }
 
-    return 'Los invitamos a ustedes la familia';
+    if(familyName.includes(' Y ')) {
+      return 'Los invitamos a ustedes ';
+    }
+
+    return 'Queremos invitarte';
   }
 
 }

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: "https://lizbeth-and-francisco-default-rtdb.firebaseio.com/"
+  baseUrl: "https://lizbeth-and-francisco-default-rtdb.firebaseio.com/",
+  baseTicketUrl: "https://wedding-invitation-rest.herokuapp.com/rest"
 };
 
 /*

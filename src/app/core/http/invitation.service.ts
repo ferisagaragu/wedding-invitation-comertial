@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../environments/environment';
 import { map } from 'rxjs/operators';
 import { Observable } from 'rxjs';
+import { environment } from '../../../environments/environment';
 import { InvitationModel } from '../models/invitation.model';
 
 @Injectable({
@@ -17,11 +17,27 @@ export class InvitationService {
       .pipe(map((resp: any) => new InvitationModel(resp)));
   }
 
-  generateTickets(invitationUuid: string): Observable<string> {
-    return this.http.get(
-      `${environment.baseUrl}/public/invitations/ticket/${invitationUuid}`,
+  findAllInvitations(): Observable<Array<InvitationModel>> {
+    return this.http.get(`${environment.baseUrl}/.json`)
+      .pipe(map((resp: any) => {
+        const out = [];
+
+        for (let key in resp) {
+          if (resp.hasOwnProperty(key)) {
+            out.push(new InvitationModel(resp[key]));
+          }
+        }
+
+        return out;
+      }));
+  }
+
+  generateTickets(guests: Array<string>): Observable<string> {
+    return this.http.post(
+      `${environment.baseTicketUrl}/public/invitations/lizbeth-francisco`,
+      guests,
       { responseType: 'blob' }
-    ).pipe(map(resp => window.URL.createObjectURL(resp)));
+    ).pipe(map(resp => URL.createObjectURL(resp)));
   }
 
 }

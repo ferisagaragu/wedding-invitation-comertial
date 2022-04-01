@@ -40,8 +40,10 @@ export class FormGuestComponent implements OnInit {
         'ya que tu decision sera <b>irrevocable</b>.' +
         generateGuestListFunction(this.guests),
       showCancelButton: true,
-      materialButtonsColor: '#6D2741',
-      theme: 'material'
+      materialButtonsColor: '#D0B072',
+      theme: 'material',
+      cancelButtonText: 'Cancelar',
+      confirmButtonText: 'Confirmar'
     }).subscribe(resp => {
       if (resp) {
         this.invitation.send = true;
@@ -56,13 +58,29 @@ export class FormGuestComponent implements OnInit {
 
   generateTicket(): void {
     this.load = true;
+    const data = [];
 
-    this.invitationService.generateTickets(this.invitation.uuid).subscribe(resp => {
+    this.invitation.guests.forEach(guest => {
+      if (guest.status === 2)
+        data.push(guest.name);
+    });
+
+    this.invitationService.generateTickets(data).subscribe(resp => {
       const link = document.createElement('a');
       link.href = resp;
       link.click();
       this.load = false;
     });
+  }
+
+  getAllResponse() {
+    let resp = false;
+
+    this.invitation?.guests?.forEach(guest => {
+      resp = (guest.status === 2) || resp;
+    })
+
+    return resp;
   }
 
 }
