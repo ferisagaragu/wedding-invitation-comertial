@@ -14,7 +14,7 @@ export class LocationComponent {
       link.click();
     } else {
       const link = document.createElement('a');
-      link.href = 'https://www.google.com.mx/maps/place/Gasolinera+Pemex/@16.8441654,-99.8121543,18.58z/data=!4m9!1m2!2m1!1sCarretera+Puerto+Marquez+S%2FN,+Piedra+Roja,+Ejido+De+Cayaco,+39810+Acapulco+de+Ju%C3%A1rez,+Gro.!3m5!1s0x85ca5bfe69b13fb7:0x9e3fca4e795b78ce!8m2!3d16.8446114!4d-99.8116215!15sCltDYXJyZXRlcmEgUHVlcnRvIE1hcnF1ZXogUy9OLCBQaWVkcmEgUm9qYSwgRWppZG8gRGUgQ2F5YWNvLCAzOTgxMCBBY2FwdWxjbyBkZSBKdcOhcmV6LCBHcm8ukgELZ2FzX3N0YXRpb24'
+      link.href = 'https://www.google.com/maps/place/Jard%C3%ADn+La+Piedra/@16.8442818,-99.8118982,21z/data=!4m12!1m6!3m5!1s0x85ca5be432cda67b:0xa4cd8bebc69532d0!2sJard%C3%ADn+La+Piedra!8m2!3d16.8443771!4d-99.8119451!3m4!1s0x85ca5be432cda67b:0xa4cd8bebc69532d0!8m2!3d16.8443771!4d-99.8119451'
       link.click();
     }
   }
